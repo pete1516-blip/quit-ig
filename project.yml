@@ -1,0 +1,33 @@
+name: QuitIG
+options:
+  bundleIdPrefix: com.quitig
+  deploymentTarget:
+    iOS: "26.0"
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+targets:
+  QuitIG:
+    type: application
+    platform: iOS
+    sources:
+      - QuitIG
+    info:
+      path: QuitIG/Info.plist
+      properties:
+        CFBundleDisplayName: "เลิก IG"
+        CFBundleShortVersionString: "1.0"
+        CFBundleVersion: "1"
+        CFBundleDevelopmentRegion: th
+        UILaunchScreen: {}
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+        NSSupportsLiveActivities: true
+        NSAlarmKitUsageDescription: "ใช้ปลุกทุกเย็นเพื่อเตือนให้เช็คอินว่าวันนี้เลิก IG ได้ไหม"
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.quitig.app
+        TARGETED_DEVICE_FAMILY: "1"
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        CODE_SIGNING_ALLOWED: "NO"
+        CODE_SIGNING_REQUIRED: "NO"
