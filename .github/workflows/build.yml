@@ -4,6 +4,9 @@ on:
   push:
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: macos-26
@@ -40,3 +43,10 @@ jobs:
         with:
           name: QuitIG-ipa
           path: QuitIG.ipa
+
+      - name: Publish to Releases
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release delete latest --yes --cleanup-tag || true
+          gh release create latest QuitIG.ipa --title "เลิก IG (build ${{ github.run_number }})" --notes "ดาวน์โหลด QuitIG.ipa แล้วติดตั้งด้วย Sideloadly"
